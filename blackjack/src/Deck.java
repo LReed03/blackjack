@@ -24,5 +24,9 @@ public class Deck {
         Collections.shuffle(this.cards);
     }
 
+    public Card getCard(int i){
+        return this.cards.get(i);
+    }
+
 
 }

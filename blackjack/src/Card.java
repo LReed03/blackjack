@@ -16,12 +16,19 @@ public class Card {
     public void setCardValue(Rank rank){
         switch(rank){
             case ACE:
-                Scanner reader = new Scanner(System.in);
-                System.out.print("Select 0 for 11 and 1 for 1   ");
-                int n = reader.nextInt();
-                int[] value = {11,1};
-                this.cardValue = value[n];
-                reader.close();
+                while(true){
+                    Scanner reader = new Scanner(System.in);
+                    System.out.print("Select 0 for 11 and 1 for 1   ");
+                    int n = reader.nextInt();
+                    if(n > 1){
+                        System.out.print("Select a valid index");
+                        continue;
+                    }
+                    int[] value = {11,1};
+                    this.cardValue = value[n];
+                    reader.close();
+                    break;
+                }
                 break;
             case TWO:
                 this.cardValue = 2;
