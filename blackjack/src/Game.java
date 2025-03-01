@@ -10,21 +10,23 @@ public class Game {
         List<Deck> sumDeck = new ArrayList<>();
         for(int i = 0; i < numberDecks; i++){
                 Deck deck = new Deck();
-                for(int j = 0; i < 52; i++){
+                for(int j = 0; j < 52; j++){
                     Card card = deck.getCard(j);
                     this.allCards.add(card);
                 }
         }
-        Collections.shuffle(allCards);
+        Collections.shuffle(this.allCards);
     }
 
 
     public int drawCard(){
         Random random = new Random();
         int randomIndex = random.nextInt(this.allCards.size());
-        Card cardDrawn = this.allCards.get(randomIndex);
+        Card cardDrawn = this.allCards.remove(randomIndex);
         cardDrawn.setCardValue(cardDrawn.getRank());
-        return cardDrawn.getCardValue();
+        int cardDrawnValue = cardDrawn.getCardValue();
+
+        return cardDrawnValue;
     }
 
     public void dealer(){
