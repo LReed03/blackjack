@@ -26,4 +26,21 @@ public class Game {
         cardDrawn.setCardValue(cardDrawn.getRank());
         return cardDrawn.getCardValue();
     }
+
+    public void dealer(){
+        Dealer dealer = new Dealer();
+        while(dealer.continueDraw()){
+            int drawnCard = drawCard();
+            dealer.increaseHand(drawnCard);
+            System.out.print(dealer.getHand()+"\n");
+            if(dealer.getHand() == 21){
+                System.out.print("BLACKJACK!!!!");
+            }
+            if(dealer.getHand() > 21){
+                System.out.print("Bust:(");
+            }
+        }
+    }
+
+    
 }
