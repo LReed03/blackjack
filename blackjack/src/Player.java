@@ -1,7 +1,7 @@
-public class Dealer {
+public class Player {
     private int currentHand;
 
-    public Dealer(){
+    public Player(){
         this.currentHand = 0;
     }
 
