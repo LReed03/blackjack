@@ -15,7 +15,7 @@ public class Game {
                     this.allCards.add(card);
                 }
         }
-        Collections.shuffle(sumDeck);
+        Collections.shuffle(allCards);
     }
 
 
@@ -23,6 +23,7 @@ public class Game {
         Random random = new Random();
         int randomIndex = random.nextInt(this.allCards.size());
         Card cardDrawn = this.allCards.get(randomIndex);
+        cardDrawn.setCardValue(cardDrawn.getRank());
         return cardDrawn.getCardValue();
     }
 }
