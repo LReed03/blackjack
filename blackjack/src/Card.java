@@ -18,16 +18,15 @@ public class Card {
             case ACE:
                 Scanner readerAce = new Scanner(System.in);
                 while(true){
-                    System.out.print("Select 0 for 11 and 1 for 1   \n");
+                    System.out.print("You pulled an Ace Select 0 for 11 and 1 for 1   \n");
                     int n = readerAce.nextInt();
                     if(n < 2 && n >= 0){
                         int[] value = {11,1};
                         this.cardValue = value[n];
-                        readerAce.close();
+                        
                         break;
                     }
                     System.out.print("Select a valid index\n");
-                    continue;
                     
                 }
                 break;

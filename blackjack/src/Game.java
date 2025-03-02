@@ -48,12 +48,12 @@ public class Game {
 
     public int dealer(Player dealer) {
         while (dealer.continueDraw()) {
-            int drawnCard = drawCard();
+            int drawnCard = dealerDrawCard(dealer);
             dealer.increaseHand(drawnCard);
-            System.out.print("Drawn Card: " + drawnCard + "\n");
+            System.out.print("\nDrawn Card: " + drawnCard + "\n");
             System.out.print("Dealers Hand: " + dealer.getHand() + "\n");
             if (dealer.getHand() == 21) {
-                System.out.print("BLACKJACK!!!!");
+                System.out.print("BLACKJACK!!!!\n");
             }
             if (dealer.getHand() > 21) {
                 System.out.print("Dealer Bust!! \n");
@@ -67,7 +67,12 @@ public class Game {
         boolean draw = true;
         int drawnCard = drawCard();
         player.increaseHand(drawnCard);
+        System.out.print("Players Drawn Card: " + drawnCard + "\n");
+        System.out.print("Players Current Hand: " + player.getHand() + "\n\n");
+        drawnCard = drawCard();
+        player.increaseHand(drawnCard);
         System.out.print("Player Drawn Card: " + drawnCard + "\n");
+        System.out.print("Players Current Hand: " + player.getHand() + "\n\n");
         
         while (draw) {
             Scanner reader = new Scanner(System.in);
@@ -81,13 +86,13 @@ public class Game {
                     break;
                 }
                 int newDrawnCard = drawCard();
-                System.out.print("Player Drawn Card: " + newDrawnCard + "\n");
+                System.out.print("Players Drawn Card: " + newDrawnCard + "\n");
 
                 player.increaseHand(newDrawnCard);
                 int handValue = player.getHand();
-                System.out.print("Your current hand value is \n" + handValue + "\n");
+                System.out.print("Your current hand value is \n" + handValue + "\n\n");
             } else {
-                System.out.print("Select a valid index\n");
+                System.out.print("Select a valid index\n\n");
                 continue;
             }
             if (player.getHand() > 21) {
@@ -108,7 +113,7 @@ public class Game {
         int drawCard = dealerDrawCard(dealer);
         dealer.increaseHand(drawCard);
         System.out.print("Dealer draws a " + drawCard + "\n");
-        System.out.print("Dealers hand is " + dealer.getHand() + "\n");
+        System.out.print("Dealers hand is " + dealer.getHand() + "\n\n");
         int playerHand = player();
         while(true){
             if(playerHand > 21){
@@ -135,7 +140,5 @@ public class Game {
         }
     }
 
-    public void dealerAce(){
 
-    }
 }
