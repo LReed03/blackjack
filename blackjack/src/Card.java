@@ -16,14 +16,14 @@ public class Card {
     public void setCardValue(Rank rank){
         switch(rank){
             case ACE:
+                Scanner readerAce = new Scanner(System.in);
                 while(true){
-                    Scanner reader = new Scanner(System.in);
                     System.out.print("Select 0 for 11 and 1 for 1   \n");
-                    int n = reader.nextInt();
+                    int n = readerAce.nextInt();
                     if(n < 2 && n >= 0){
                         int[] value = {11,1};
                         this.cardValue = value[n];
-                        reader.close();
+                        readerAce.close();
                         break;
                     }
                     System.out.print("Select a valid index\n");
@@ -62,6 +62,10 @@ public class Card {
             
 
         }
+    }
+
+    public void setCardValue(int i){
+        this.cardValue = i;
     }
 
     public void setSuit(Suit suit){
